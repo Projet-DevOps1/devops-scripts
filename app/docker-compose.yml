@@ -1,0 +1,8 @@
+name: frontend-app-stack
+
+services:
+  frontend-app:
+    image: lebondeveloppeur/frontend-app:latest
+    container_name: frontend-app
+    ports:
+      - '3000:80'
