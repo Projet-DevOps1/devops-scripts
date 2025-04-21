@@ -1,0 +1,31 @@
+
+    # Update apt cache 
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    # Install Nginx
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: latest
+
+    # Start and enable Nginx service
+    - name: Start and enable Nginx service
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # Verify Nginx installation
+    - name: Verify Nginx installation
+      command: nginx -v
+      register: nginx_version
+      changed_when: false
+
+    # Show Nginx version
+    - name: Show Nginx version
+      debug:
+        msg: "Nginx version: {{ nginx_version.stderr }}"
+
+   
