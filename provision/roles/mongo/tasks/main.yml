@@ -10,6 +10,6 @@
     dest: /opt/mongo/docker-compose.yml
 
 - name: Start MongoDB container
-  command: docker-compose up -d
+  command: docker compose up -d
   args:
     chdir: /opt/mongo
