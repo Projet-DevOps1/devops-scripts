@@ -1,4 +1,4 @@
-name: VPS Provision Pipeline
+name: VPS Provision Pipeline.
 
 on:
   push:
