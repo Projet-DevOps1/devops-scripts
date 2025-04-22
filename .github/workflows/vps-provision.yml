@@ -18,11 +18,11 @@ jobs:
       - name: Clone Source Code
         uses: actions/checkout@v4
 
-      - name: Install SSH Client (optional but helps with debugging)
-        run: sudo apt-get update && sudo apt-get install -y openssh-client
+     # - name: Install SSH Client (optional but helps with debugging)
+     #   run: sudo apt-get update && sudo apt-get install -y openssh-client
 
-      - name: Display Ansible version (debugging)
-        run: ansible --version
+     # - name: Display Ansible version (debugging)
+     #   run: ansible --version
 
       - name: Provision VPS using Ansible with inline inventory
         uses: dawidd6/action-ansible-playbook@v2
