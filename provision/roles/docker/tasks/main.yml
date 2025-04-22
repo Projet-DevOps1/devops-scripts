@@ -1,9 +1,3 @@
-
-    # Update apt cache 
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-
     # Install required dependencies for Docker
     - name: Install required dependencies for Docker
       apt:

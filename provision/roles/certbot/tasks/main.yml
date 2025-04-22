@@ -1,0 +1,17 @@
+
+
+- name: Install Certbot and Nginx plugin on Ubuntu
+  hosts: your_server
+  become: yes
+
+  tasks:
+    - name: Update APT package cache
+      apt:
+        update_cache: yes
+
+    - name: Install Certbot and python3-certbot-nginx
+      apt:
+        name:
+          - certbot
+          - python3-certbot-nginx
+        state: present

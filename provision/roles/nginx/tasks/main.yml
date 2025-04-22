@@ -1,9 +1,3 @@
-
-    # Update apt cache 
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-
     # Install Nginx
     - name: Install Nginx
       apt:

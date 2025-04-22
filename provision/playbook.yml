@@ -1,15 +1,11 @@
 
-- name: Provision Docker, Nginx, and Docker Compose 
+- name: Provision VPS 
   hosts: all
   become: true
   roles:
     - docker
     - nginx
-
-- name: Provision MongoDB 
-  hosts: all
-  become: true
-  roles:
+    - certbot
     - mongo
 
    
