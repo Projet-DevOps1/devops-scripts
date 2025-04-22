@@ -1,19 +1,19 @@
- - name: Ensure docker Python module is installed
-      pip:
-        name: docker
+- name: Ensure docker Python module is installed
+  pip:
+    name: docker
 
-    - name: Create mongo-compose directory
-      file:
-        path: /opt/mongodb-stack
-        state: directory
+- name: Create mongo-compose directory
+  file:
+    path: /opt/mongodb-stack
+    state: directory
 
-    - name: Deploy Docker Compose file
-      template:
-        src: mongo-compose.yml
-        dest: /opt/mongodb-stack/docker-compose.yml
-        mode: '0644'
+- name: Deploy Docker Compose file
+  template:
+    src: mongo-compose.yml
+    dest: /opt/mongodb-stack/docker-compose.yml
+    mode: '0644'
 
-    - name: Deploy with docker_compose_v2 module
-      community.docker.docker_compose_v2:
-        project_src: /opt/mongodb-stack
-        state: present
+- name: Deploy with docker_compose_v2 module
+  community.docker.docker_compose_v2:
+    project_src: /opt/mongodb-stack
+    state: present
