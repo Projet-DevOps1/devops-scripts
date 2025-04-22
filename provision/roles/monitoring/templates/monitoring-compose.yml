@@ -2,7 +2,7 @@
 name: monitoring-stack
 
 services:
-  # Prometheus pour la collecte des métriques
+  # Prometheus pour la collecte des métriques.
   prometheus:
     image: prom/prometheus:latest
     container_name: monitoring_prometheus
