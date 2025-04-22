@@ -29,6 +29,6 @@ jobs:
           playbook: provision/playbook.yml
           inventory: "${{ secrets.VPS_HOST }}"
           options: >
-            --extra-vars "ansible_user=${{ secrets.VPS_USERNAME }} ansible_password=${{ secrets.VPS_PASSWORD }} ansible_become=yes"
+            --extra-vars "ansible_user=${{ secrets.VPS_USERNAME }} ansible_password=${{ secrets.VPS_PASSWORD }} ansible_become=yes ansible_python_interpreter=/usr/bin/python3.12"
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
