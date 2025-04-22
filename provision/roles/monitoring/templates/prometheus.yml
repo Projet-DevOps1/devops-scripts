@@ -22,5 +22,5 @@ scrape_configs:
     static_configs:
       - targets:
           - 'localhost:9090'       # Prometheus
-          - 'cadvisor:8080'        # cAdvisor for container metrics
+          - 'cadvisor:8080'        # cAdvisor for container metrics.
           - 'node-exporter:9100'   # Node Exporter for system metrics
