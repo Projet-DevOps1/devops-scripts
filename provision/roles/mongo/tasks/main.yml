@@ -1,15 +1,15 @@
 
-- name: Create mongo-compose directory
-  file:
-    path: /opt/mongo
-    state: directory
+    - name: Create mongo-compose directory
+      file:
+        path: /opt/mongodb-stack
+        state: directory
 
-- name: Deploy Docker Compose file
-  template:
-    src: mongo-compose.yml.j2
-    dest: /opt/mongo/docker-compose.yml
+    - name: Deploy Docker Compose file
+      template:
+        src: mongo-compose.yml
+        dest: /opt/mongodb-stack/docker-compose.yml
 
-- name: Start MongoDB container
-  command: docker compose up -d
-  args:
-    chdir: /opt/mongo
+    - name: Start MongoDB container
+      command: docker compose up -d
+      args:
+        chdir: /opt/mongodb-stack
