@@ -1,4 +1,4 @@
-name: frontend-app-stack
+name: frontend-app-stack.
 
 services:
   frontend-app:
