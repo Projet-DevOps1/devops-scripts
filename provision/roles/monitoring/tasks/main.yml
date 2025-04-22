@@ -1,0 +1,20 @@
+
+- name: Create Monitoring directory
+  file:
+    path: /opt/monitoring
+    state: directory
+
+- name: Deploy Docker Compose file
+  template:
+    src: monitoring-compose.yml
+    dest: /opt/monitoring/docker-compose.yml
+
+- name: Deploy Docker Compose file
+  template:
+    src: prometheus.yml
+    dest: /opt/monitoring/prometheus.yml
+
+- name: Start Monitoring Services
+  command: docker compose up -d
+  args:
+    chdir: /opt/monitoring
