@@ -1,3 +1,6 @@
+ - name: Ensure docker Python module is installed
+      pip:
+        name: docker
 
     - name: Create mongo-compose directory
       file:
@@ -8,13 +11,9 @@
       template:
         src: mongo-compose.yml
         dest: /opt/mongodb-stack/docker-compose.yml
+        mode: '0644'
 
-    - name: Start MongoDB container
-      command: docker compose up -d
-      args:
-        chdir: /opt/mongodb-stack
-
-    - name: Deploy with docker_compose module
-      community.docker.docker_compose:
+    - name: Deploy with docker_compose_v2 module
+      community.docker.docker_compose_v2:
         project_src: /opt/mongodb-stack
         state: present
