@@ -63,7 +63,7 @@ services:
     ports:
       - "9113:9113"                                           # Expose metrics on port 9113
     command:
-      - -nginx.scrape-uri=http://host.docker.internal:8080/stub_status
+      - --nginx.scrape-uri=http://nginx-exporter:8080/stub_status
 
 volumes:
   prometheus_data:
