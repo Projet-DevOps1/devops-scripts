@@ -1,13 +1,18 @@
 
-    - name: Ensure mongo-compose directory exists
+    - name: Create mongo-compose directory
       file:
         path: /opt/mongodb-stack
         state: directory
 
-    - name: Copy Docker Compose template
+    - name: Deploy Docker Compose file
       template:
         src: mongo-compose.yml
         dest: /opt/mongodb-stack/docker-compose.yml
+
+    - name: Start MongoDB container
+      command: docker compose up -d
+      args:
+        chdir: /opt/mongodb-stack
 
     - name: Deploy with docker_compose module
       community.docker.docker_compose:
