@@ -1,5 +1,4 @@
-handlers:
-  - name: Reload nginx
-    ansible.builtin.service:
-      name: nginx
-      state: reloaded
+- name: Reload nginx
+  ansible.builtin.service:
+    name: nginx
+    state: reloaded
