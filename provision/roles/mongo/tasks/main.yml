@@ -1,18 +1,22 @@
-- name: Ensure pip3 is installed
+- name: Install pip3
   apt:
     name: python3-pip
     state: present
   become: true
   when: ansible_os_family == 'Debian'
 
-- name: Ensure docker Python module is installed
-  pip:
-    name: docker
+- name: Install docker Python module via apt
+  apt:
+    name: python3-docker
+    state: present
+  become: true
+  when: ansible_os_family == 'Debian'
 
 - name: Create mongo-compose directory
   file:
     path: /opt/mongodb-stack
     state: directory
+    mode: '0755'
 
 - name: Deploy Docker Compose file
   template:
@@ -20,7 +24,7 @@
     dest: /opt/mongodb-stack/docker-compose.yml
     mode: '0644'
 
-- name: Deploy with docker_compose_v2 module
+- name: Deploy MongoDB with Docker Compose v2
   community.docker.docker_compose_v2:
     project_src: /opt/mongodb-stack
     state: present
