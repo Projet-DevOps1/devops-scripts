@@ -1,0 +1,37 @@
+# ✅ Name of the Workflow
+name: VPS Provision Pipeline
+
+# ✅ Trigger this workflow on push to main branch
+on:
+  push:
+    branches:
+      - main
+  
+jobs:
+
+  # ✅ Provision VPS
+  provision-vps-job:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Clone Source Code
+        uses: actions/checkout@v4
+
+      - name: Install SSH Client (optional but helps with debugging)
+        run: sudo apt-get update && sudo apt-get install -y openssh-client
+
+      - name: Display Ansible version (debugging)
+        run: ansible --version
+
+      - name: Provision VPS using Ansible with inline inventory
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: provision/playbook.yml
+          inventory: "${{ secrets.VPS_HOST }}"
+          options: >
+            --extra-vars "ansible_user=${{ secrets.VPS_USERNAME }} ansible_password=${{ secrets.VPS_PASSWORD }} ansible_become=yes"
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: 'false'
+   
+  

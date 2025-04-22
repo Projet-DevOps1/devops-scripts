@@ -1,8 +1,4 @@
 
-      - name: Update APT package cache
-        apt:
-          update_cache: yes
-
       - name: Install Certbot and python3-certbot-nginx
         apt:
           name:
