@@ -21,7 +21,7 @@
     dest: "{{ item.dest }}"          # Use variable for destination path
     mode: '0644'                     # Set file permissions (owner can read/write, others can read-only)
   with_items:
-    - { src: "mongo-compose.yml", dest: "/opt/monitoring-stack/docker-compose.yml" }
+    - { src: "monitoring-compose.yml", dest: "/opt/monitoring-stack/docker-compose.yml" }
     - { src: "prometheus.yml", dest: "/opt/monitoring-stack/prometheus.yml" }
 
 # Deploy the monitoring stack using Docker Compose v2
