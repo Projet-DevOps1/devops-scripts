@@ -24,4 +24,3 @@ scrape_configs:
           - 'localhost:9090'       # Prometheus
           - 'cadvisor:8080'        # cAdvisor for container metrics
           - 'node-exporter:9100'   # Node Exporter for system metrics
-          - 'nginx-exporter:9113'  # Optional: Nginx exporter (if running)

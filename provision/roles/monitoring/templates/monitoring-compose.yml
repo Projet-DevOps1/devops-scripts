@@ -17,7 +17,6 @@ services:
     links:
       - cadvisor:cadvisor
       - node-exporter:node-exporter
-      - nginx-exporter:nginx-exporter
 
   # Node Exporter for system metrics
   node-exporter:
@@ -54,16 +53,6 @@ services:
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
-
-  # NGINX Exporter for NGINX metrics
-  nginx-exporter:
-    image: nginx/nginx-prometheus-exporter:latest
-    container_name: monitoring_nginx_exporter
-    restart: unless-stopped
-    ports:
-      - "9113:9113"                                           # Expose metrics on port 9113
-    command:
-      - --nginx.scrape-uri=http://nginx-exporter:8080/stub_status
 
 volumes:
   prometheus_data:
