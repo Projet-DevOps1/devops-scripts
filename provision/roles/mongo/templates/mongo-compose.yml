@@ -10,8 +10,8 @@ services:
     restart: always                           # Always restart the container if it stops
     environment:
       # Environment variables to initialize MongoDB
-      - MONGO_INITDB_ROOT_USERNAME=root       # Root username for MongoDB
-      - MONGO_INITDB_ROOT_PASSWORD=pass-123   # Root password for MongoDB
+      - MONGO_INITDB_ROOT_USERNAME=root       # Root username for MongoDB.
+      - MONGO_INITDB_ROOT_PASSWORD=pass-123   # Root password for MongoDB.
       - MONGO_INITDB_DATABASE=book-store      # Default database to create on initialization
     ports:
       - "27017:27017"                         # Map port 27017 on the host to port 27017 in the container
