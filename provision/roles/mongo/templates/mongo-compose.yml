@@ -26,4 +26,6 @@ volumes:
 
 # Networks section defines the networks used by the containers
 networks:
-  backend-api-net:                           # Define a custom network for MongoDB containers
+  backend-api-net:
+    name: backend-api-net                           # Use the bridge driver for the custom network
+    driver: bridge
