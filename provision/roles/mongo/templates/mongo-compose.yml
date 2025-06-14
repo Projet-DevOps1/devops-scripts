@@ -18,7 +18,7 @@ services:
     volumes:
       - mongodb-volume:/data/db               # Persist MongoDB data in a named volume (mongodb-volume)
     networks:
-      - mongodb-network                       # Attach this container to a custom network (mongodb-network)
+      - backend-api-net                        # Attach this container to a custom network (backend-api-net)
 
 # Volumes section defines named volumes for persistent data
 volumes:
@@ -26,4 +26,4 @@ volumes:
 
 # Networks section defines the networks used by the containers
 networks:
-  mongodb-network:                           # Define a custom network for MongoDB containers
+  backend-api-net:                           # Define a custom network for MongoDB containers
