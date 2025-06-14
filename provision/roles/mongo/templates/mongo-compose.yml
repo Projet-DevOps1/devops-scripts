@@ -28,4 +28,3 @@ volumes:
 networks:
   backend-api-net:
     name: backend-api-net                           # Use the bridge driver for the custom network
-    driver: bridge
